@@ -1,0 +1,23 @@
+/*
+  Button
+*/
+
+.btn {
+  display: inline-flex;
+  padding: 1rem 2rem;
+  border: 0;
+  color: $light;
+  font-size: 1rem;
+  background: $dark;
+  border-radius: .5rem;
+  cursor: pointer;
+  transition: color $animation-time $animation-type, background-color $animation-time $animation-type, box-shadow $animation-time $animation-type;
+
+  &:focus {
+    box-shadow: 0 0 0 .25rem transparentize($dark, .8);
+  }
+
+  &:hover {
+    background-color: lighten($dark, 15);
+  }
+}

@@ -1,0 +1,129 @@
+/*
+  Modal
+*/
+
+.modal {
+  $border-width: 0.625rem;
+
+  position: fixed;
+  display: flex;
+  overflow: auto;
+  z-index: 1010;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 2rem;
+  cursor: pointer;
+
+  &-backdrop {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: $dark;
+  }
+
+  &-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    width: 100%;
+    max-width: 57.875rem;
+    margin: auto;
+    cursor: default;
+  }
+
+  &-content {
+    width: 100%;
+    border: $border-width solid $dark;
+    text-align: center;
+    font-size: 2.25rem;
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem $light;
+    text-shadow: 2px 3px 0 $dark;
+    border-radius: 1.5rem;
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 8.25rem;
+    padding: 1rem;
+    border-bottom: $border-width solid $dark;
+    text-transform: uppercase;
+
+    span {
+      max-width: 40rem;
+    }
+  }
+
+  time {
+    display: block;
+    align-items: center;
+    border-bottom: $border-width solid $dark;
+    padding: 1.125rem 1rem;
+    font-size: 1.5rem;
+    color: $dark;
+    background: $light;
+    text-shadow: none;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: calc(8.25rem - $border-width);
+      padding: 0.75rem 2rem;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-lg-down) {
+    ul {
+      li {
+        &:not(:first-child) {
+          border-top: 0.4375rem solid $dark;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $breakpoint-lg-up) {
+    &-content {
+      font-size: 2.625rem;
+    }
+
+    ul {
+      flex-wrap: nowrap;
+
+      li {
+        width: auto;
+        flex: 1 0 0;
+
+        &:first-child:not(:last-child) {
+          justify-content: flex-start;
+          text-align: left;
+        }
+
+        &:last-child:not(:first-child) {
+          justify-content: flex-end;
+          text-align: right;
+        }
+
+        &:not(:first-child) {
+          border-left: 0.4375rem solid $dark;
+        }
+      }
+    }
+  }
+}
